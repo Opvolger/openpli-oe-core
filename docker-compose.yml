@@ -1,0 +1,18 @@
+version: '2'
+services:
+  build_openpli_oe_core:
+    container_name: build_openpli_oe_core
+    build: 
+      context: .
+      args:
+        UID: 1000
+        GID: 1000
+        UNAME: builder
+    environment:
+      # example dm500hd / hd11/  h9
+      MACHINE: "h9"
+      ENIGMA2_BRANCH: "develop"
+      # image / feed
+      MAKE_INSTRUCTION: "image"
+    volumes:
+      - '.:/openpli-oe-core'
